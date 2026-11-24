@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myflask
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myflask
+  template:
+    metadata:
+      labels:
+        app: myflask
+    spec:
+      containers:
+        - name: myflask
+          image: myflask:test
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5000
